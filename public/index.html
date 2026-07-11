@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Expense Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="container">
+    <header>
+      <h1>✿ Expense Tracker</h1>
+      <p class="subtitle">Track your spending, girlboss.</p>
+    </header>
+
+    <div class="top-grid">
+      <!-- Add / Edit form -->
+      <div class="card">
+        <h2 id="form-title">Add Expense</h2>
+        <form id="expense-form">
+          <input type="hidden" id="expense-id" />
+
+          <label>Title</label>
+          <input type="text" id="title" placeholder="e.g. Groceries" required />
+
+          <label>Amount (₹)</label>
+          <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required />
+
+          <label>Category</label>
+          <select id="category" required>
+            <option value="" disabled selected>Select category</option>
+            <option>Food</option>
+            <option>Transport</option>
+            <option>Rent</option>
+            <option>Utilities</option>
+            <option>Entertainment</option>
+            <option>Shopping</option>
+            <option>Health</option>
+            <option>Education</option>
+            <option>Other</option>
+          </select>
+
+          <label>Date</label>
+          <input type="date" id="expense-date" required />
+
+          <div class="form-actions">
+            <button type="submit" id="submit-btn">Add Expense</button>
+            <button type="button" id="cancel-edit" class="secondary hidden">Cancel</button>
+          </div>
+        </form>
+        <p id="error-text" class="error hidden"></p>
+      </div>
+
+      <!-- Summary -->
+      <div class="card">
+        <h2>Summary</h2>
+        <div class="total-box">
+          <span class="total-label">Total Spent</span>
+          <span id="total-amount" class="total-value">₹0.00</span>
+        </div>
+        <canvas id="category-chart" width="300" height="300"></canvas>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="card">
+      <div class="filters">
+        <select id="filter-category">
+          <option value="">All Categories</option>
+          <option>Food</option>
+          <option>Transport</option>
+          <option>Rent</option>
+          <option>Utilities</option>
+          <option>Entertainment</option>
+          <option>Shopping</option>
+          <option>Health</option>
+          <option>Education</option>
+          <option>Other</option>
+        </select>
+        <input type="month" id="filter-month" />
+        <button id="clear-filters" class="secondary">Clear Filters</button>
+      </div>
+
+      <table id="expense-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="expense-list"></tbody>
+      </table>
+      <p id="empty-text" class="empty hidden">No expenses yet — add your first one above.</p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
