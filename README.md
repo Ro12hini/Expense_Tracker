@@ -16,43 +16,14 @@ expense-tracker/
 │   └── expenseController.js   # CRUD + summary logic, validation
 ├── routes/
 │   └── expenseRoutes.js       # Express route definitions
-├── public/                    # Frontend (served statically)
+├── public/                    # Frontend
 │   ├── index.html
 │   ├── style.css
 │   └── script.js
-├── sql/
-│   └── schema.sql             # Run this in MySQL Workbench first
-├── server.js                   # App entry point
-├── .env.example
+├── server.js                   
+├── .env
 └── package.json
 ```
-
-## Setup
-
-### 1. Install dependencies
-```bash
-npm install
-```
-
-### 2. Set up the database
-Open MySQL Workbench and run the contents of `sql/schema.sql`. This creates the `expense_tracker` database and `expenses` table.
-
-### 3. Configure environment variables
-```bash
-cp .env.example .env
-```
-Fill in your real MySQL password in `.env`. Note this app runs on **port 3001** by default (not 3000), so it doesn't clash with the URL shortener project if you run both at once.
-
-### 4. Run the server
-```bash
-npm start
-```
-Or with auto-restart during development:
-```bash
-npm run dev
-```
-
-Visit `http://localhost:3001` in your browser.
 
 ## API Endpoints
 
